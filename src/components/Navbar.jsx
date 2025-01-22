@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-white/30 z-50 fixed backdrop-blur-xl right-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,13 +26,40 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  `font-bold ${
+                    isActive ? "text-warning" : "hover:text-warning"
+                  }`
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/coffee">Coffee</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  `font-bold ${
+                    isActive ? "text-warning" : "hover:text-warning"
+                  }`
+                }
+                to="/coffee"
+              >
+                Coffee
+              </NavLink>
             </li>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  `font-bold ${
+                    isActive ? "text-warning" : "hover:text-warning"
+                  }`
+                }
+                to="/dashboard"
+              >
+                Dashboard
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -43,13 +70,34 @@ const Navbar = () => {
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-bold">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/coffee">Coffee</Link>
+            <NavLink
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+              to="/coffee"
+            >
+              Coffee
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <NavLink
+              className={({ isActive }) =>
+                `font-bold ${isActive ? "text-warning" : "hover:text-warning"}`
+              }
+              to="/dashboard"
+            >
+              Dashboard
+            </NavLink>
           </li>
         </ul>
       </div>
