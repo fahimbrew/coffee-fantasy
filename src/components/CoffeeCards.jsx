@@ -21,17 +21,19 @@ const CoffeeCards = () => {
   //   console.log(data);
   return (
     <div className="my-9">
-      <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-6">
         {coffees.map((coffee) => (
           <Card key={coffee.id} coffee={coffee} />
         ))}
       </div>
-      <button
-        className="btn-warning btn my-3"
-        onClick={() => navigate("/coffee")}
-      >
-        View All
-      </button>
+      <div className="p-6">
+        <button
+          className="btn-warning btn my-3"
+          onClick={() => navigate("/coffee")}
+        >
+          View All
+        </button>
+      </div>
     </div>
   );
 };

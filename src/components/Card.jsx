@@ -9,7 +9,11 @@ const Card = ({ coffee }) => {
     <Link className="cursor-pointer hover:scale-105 transition-all">
       <div className="card card-compact bg-base-100 shadow-xl">
         <figure>
-          <img src={image} alt={`picture of ${name}`} />
+          <img
+            className="w-full md:h-96"
+            src={image}
+            alt={`picture of ${name}`}
+          />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
