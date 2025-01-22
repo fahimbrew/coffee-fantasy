@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Card from "../components/Card";
 
 const Coffee = () => {
   const data = useLoaderData();
+  const [coffees, setCoffees] = useState(data);
+  const handleSort = (sortBy) => {
+    if (sortBy == "popularity") {
+      // sort by popularity
+      const sorted = [...data].sort((a, b) => b.popularity - a.popularity);
+      setCoffees(sorted);
+    } else if (sortBy == "rating") {
+      // sort by rating
+      const sorted = [...data].sort((a, b) => (b.rating = a.rating));
+      setCoffees(sorted);
+    }
+  };
   return (
     <div>
       <div className="flex justify-between">
@@ -11,12 +23,22 @@ const Coffee = () => {
           Sort Coffee&apos;s By Popularity and Rating -{" "}
         </h1>
         <div className="flex gap-4">
-          <button className="btn-warning btn">Sort By Popularity</button>
-          <button className="btn-warning btn">Sort By Rating</button>
+          <button
+            onClick={() => handleSort("popularity")}
+            className="btn-warning btn"
+          >
+            Sort By Popularity
+          </button>
+          <button
+            onClick={() => handleSort("rating")}
+            className="btn-warning btn"
+          >
+            Sort By Rating
+          </button>
         </div>
       </div>
       <div className="grid md:grid-cols-3 gap-5 p-9">
-        {data.map((coffee) => (
+        {coffees.map((coffee) => (
           <Card key={coffee.id} coffee={coffee}></Card>
         ))}
       </div>
